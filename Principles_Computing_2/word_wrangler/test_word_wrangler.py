@@ -67,9 +67,6 @@ class Tests(unittest.TestCase):
         part2 = list2[len(list2) // 2:]
         part3 = list3[:len(list3) // 2 + 1]
         part4 = list3[len(list3) // 2:]
-
-        print(part1, part2)
-        print(part3, part4)
         self.assertEqual(ww.merge(list1, list2), [1])
 
     def testMerge5(self):

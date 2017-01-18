@@ -2,8 +2,6 @@
 Student code for Word Wrangler game
 """
 
-#import urllib
-# import codeskulptor
 import poc_wrangler_provided as provided
 
 WORDFILE = "assets_scrabble_words3.txt"
@@ -101,14 +99,11 @@ def merge_sort(list1):
     if len(list1) == 1 or len(list1) == 0:
         return list1
     else:
-#        print("Part1:", list1[:len(list1) // 2 + 1])
-#        print("Part2:", list1[len(list1) // 2:])
         part1 = merge_sort(list1[:len(list1) // 2])
         part2 = merge_sort(list1[len(list1) // 2:])
         return merge(part1, part2)
 
 
-# Function to generate all strings for the word wrangler game
 def gen_all_strings(word):
     """
     Generate all strings that can be composed from the letters in word
@@ -133,19 +128,16 @@ def gen_all_strings(word):
     return all_strings
 
 
-# Function to load words from a file
-
 def load_words(filename):
     """
     Load word list from the file named filename.
 
     Returns a list of strings.
     """
-#    file = open(filename, "r")
-#    data = file.read()
+    file = open(filename, "r")
+    data = file.read()
 
-    return []
-
+    return data
 
 
 def run():
@@ -158,5 +150,5 @@ def run():
                                      gen_all_strings)
     provided.run_game(wrangler)
 
-# Uncomment when you are ready to try the game
-# run()
+if __name__ == "__main__":
+    run()
