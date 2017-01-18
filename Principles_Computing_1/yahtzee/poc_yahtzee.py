@@ -3,15 +3,6 @@ Planner for Yahtzee
 Simplifications:  only allow discard and roll, only score against upper level
 """
 
-# Used to increase the timeout, if necessary
-# import codeskulptor
-# codeskulptor.set_timeout(20)
-
-
-import poc_yahtzee_expected_value_testsuite
-import poc_yahtzee_gen_all_holds_testsuite
-import poc_yahtzee_score_testsuite
-import poc_yahtzee_testsuite
 
 def gen_all_sequences(outcomes, length):
     """
@@ -168,13 +159,4 @@ def run_example():
     print("Best strategy for hand", hand, "is to hold", hold, "with expected score", hand_score)
 
 
-# run_example()
-
-strategy((3, 3, 1, 2, 6), 6)
-# poc_holds_testsuite.run_suite(gen_all_holds)
-# import poc_yahtzee_score_testsuite
-# import poc_yahtzee_expected_value_testsuite
-
-# poc_yahtzee_score_testsuite.run_suite(score)
-poc_yahtzee_expected_value_testsuite.run_suite(expected_value)
-# poc_holds_testsuite.run_suite(gen_all_holds)
+run_example()
