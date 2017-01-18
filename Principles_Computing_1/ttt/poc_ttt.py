@@ -5,7 +5,7 @@ Monte Carlo Tic-Tac-Toe Player
 import random
 import poc_ttt_provided as provided
 # import poc_ttt_testsuite
-# import poc_ttt_gui
+import poc_ttt_gui
 
 
 # Constants for Monte Carlo simulator
@@ -111,4 +111,4 @@ def get_random_square(board):
 # provided.play_game(mc_move, NTRIALS, False)
 
 # poc_ttt_testsuite.run_suite()
-# poc_ttt_gui.run_gui(3, provided.PLAYERX, mc_move, NTRIALS, False)
+poc_ttt_gui.run_gui(3, provided.PLAYERX, mc_move, NTRIALS, False)

@@ -2,7 +2,10 @@
 Tic Tac Toe GUI code.
 """
 
-import simplegui
+try:
+    import simplegui
+except ImportError:
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
 import poc_ttt_provided as provided
 
 GUI_WIDTH = 400
