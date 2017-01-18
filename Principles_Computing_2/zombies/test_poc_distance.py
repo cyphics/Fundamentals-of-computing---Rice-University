@@ -20,7 +20,7 @@ class DistanceTests(unittest.TestCase):
         p2 = (0, 0)
         self.assertEqual(distance.manhattan_distance(p1[0], p1[1], p2[0], p2[1]), 12)
 
-    def testDistanceField1(self):
+
 
 
 

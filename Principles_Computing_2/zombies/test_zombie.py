@@ -55,19 +55,6 @@ class ApocalypseClass(unittest.TestCase):
             zombies_gen.append(zombie)
         self.assertEqual(zombies_gen, [(2, 3), (1, 1)])
 
-    def testDistanceField1(self):
-        game = zombies.Apocalypse(4, 5)
-        game.add_zombie(2, 3)
-        game.add_zombie(1, 1)
-
-
-    def testDistanceField2(self):
-        game = zombies.Apocalypse(4, 5)
-        game.add_zombie(1, 0)
-        game.add_zombie(3, 4)
-        field = game.compute_distance_field(7)
-#        game.print_distance_field(field)
-
     def testDistanceField3(self):
         obstacle_list = [[2, 2]]
         game = zombies.Apocalypse(4, 5, obstacle_list)
@@ -137,13 +124,6 @@ class ApocalypseClass(unittest.TestCase):
         game.add_human(1, 1)
         game.move_humans(game.compute_distance_field(7))
         self.assertEqual(game._human_list, [(2, 1)])
-
-    def testMoveHumanObstacle2(self):
-        obstacle_list = [[0, 1]]
-        game = zombies.Apocalypse(1, 5, obstacle_list)
-        game.add_zombie(0, 0)
-        game.add_human(0, 2)
-        game.move_humans(game.compute_distance_field(7))
 
     def testMoveHumanObstacle3(self):
         obstacle_list = [[2, 2], [2, 1], [1, 2]]

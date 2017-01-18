@@ -218,7 +218,5 @@ class Apocalypse(poc_grid.Grid):
             count += 1
 
 
-# Start up gui for simulation - You will need to write some code above
-# before this will work without errors
-
-poc_zombie_gui.run_gui(Apocalypse(30, 40))
+if __name__ == "__main__":
+    poc_zombie_gui.run_gui(Apocalypse(30, 40))

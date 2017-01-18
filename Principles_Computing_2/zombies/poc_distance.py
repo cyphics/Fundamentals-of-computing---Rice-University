@@ -50,7 +50,8 @@ def run_example():
     field = create_distance_field([[4, 0], [2, 5]])
     print_field(field)
 
-run_example()
+if __name__ == "__main__":
+    run_example()
 
 # Sample output for the default example
 #[4, 5, 5, 4, 3, 2, 3, 4]
