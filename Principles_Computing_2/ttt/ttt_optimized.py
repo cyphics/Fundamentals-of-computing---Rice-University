@@ -2,7 +2,6 @@
 Mini-max Tic-Tac-Toe Player
 """
 
-import random
 import poc_ttt_gui
 import poc_ttt_provided as provided
 
@@ -15,7 +14,7 @@ SCORES = {provided.PLAYERX: 1,
           provided.DRAW: 0,
           provided.PLAYERO: -1}
 
-# rec_level = 0
+
 def mm_move(board, player):
     """
     Make a move on the board.
@@ -40,9 +39,6 @@ def mm_move(board, player):
         list_moves.append((move_score, move))
 
     # Move selection
-    # scores = [score * SCORES[player] for score in range(-1, 2) if len(list_moves[score]) > 0]
-    # assert(len(scores) > 0)
-    # score = max(scores) * SCORES(player)
     best_move = [float("-inf"), (-1, -1)]
     for elem in list_moves:
         if elem[0] * SCORES[player] > best_move[0]:
@@ -62,10 +58,7 @@ def move_wrapper(board, player, trials):
     assert move[1] != (-1, -1), "returned illegal move (-1, -1)"
     return move[1]
 
-# Test game with the console or the GUI.
-# Uncomment whichever you prefer.
-# Both should be commented out when you submit for
-# testing to save time.
 
-# provided.play_game(move_wrapper, 1, False)
-# poc_ttt_gui.run_gui(3, provided.PLAYERO, move_wrapper, 1, False)
+if __name__ == '__main__':
+    # provided.play_game(move_wrapper, 1, False)
+    poc_ttt_gui.run_gui(3, provided.PLAYERO, move_wrapper, 1, False)
