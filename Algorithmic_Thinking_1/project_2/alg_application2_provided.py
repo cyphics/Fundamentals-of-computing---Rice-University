@@ -72,7 +72,6 @@ def fast_targeted_order(ugraph):
     for node in ugraph:  # range(len(ugraph)):
         degree = len(ugraph[node])
         DegreeSets[degree].add(node)
-    print DegreeSets
     ordered_nodes = []
     i = 0
     for degree in range(len(ugraph) - 1, -1, -1):
