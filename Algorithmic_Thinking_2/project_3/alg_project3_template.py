@@ -181,10 +181,13 @@ def hierarchical_clustering(cluster_list, num_clusters):
     """
 
     while len(cluster_list) > num_clusters:
+
         # Sort clusters vertically
         cluster_list.sort(key = lambda cluster: cluster.horiz_center())
         # Find two closest clusters
+        print len(cluster_list)
         closest_clusters = fast_closest_pair(cluster_list)
+        print len(cluster_list)
         # Merge second into first
         cluster_list[closest_clusters[1]].merge_clusters(cluster_list[closest_clusters[2]])
         # Remove the second one

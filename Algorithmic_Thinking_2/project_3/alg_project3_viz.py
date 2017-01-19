@@ -91,39 +91,37 @@ def sequential_clustering(singleton_list, num_clusters):
 # visualize the results
 
 
-def run_example():
-    """
-    Load a data table, compute a list of clusters and
-    plot a list of clusters
+# def run_example():
+#     """
+#     Load a data table, compute a list of clusters and
+#     plot a list of clusters
 
-    Set DESKTOP = True/False to use either matplotlib or simplegui
-    """
-    data_table = load_data_table(DATA_111_URL)
+#     Set DESKTOP = True/False to use either matplotlib or simplegui
+#     """
+#     data_table = load_data_table(DATA_111_URL)
 
-    singleton_list = []
-    for line in data_table:
-        singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
+#     singleton_list = []
+#     for line in data_table:
+#         singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
 
+#     # cluster_list = sequential_clustering(singleton_list, 15)
+#     # print "Displaying", len(cluster_list), "sequential clusters"
 
-    # cluster_list = sequential_clustering(singleton_list, 15)
-    # print "Displaying", len(cluster_list), "sequential clusters"
+#     cluster_list = alg_project3_template.hierarchical_clustering(singleton_list, 11)
+#     print "Displaying", len(cluster_list), "hierarchical clusters"
 
-    cluster_list = alg_project3_template.hierarchical_clustering(singleton_list, 11)
-    print "Displaying", len(cluster_list), "hierarchical clusters"
+#     # cluster_list = alg_project3_template.kmeans_clustering(singleton_list, 9, 5)
+#     # print "Displaying", len(cluster_list), "k-means clusters"
 
-    #cluster_list = alg_project3_template.kmeans_clustering(singleton_list, 9, 5)
-    #print "Displaying", len(cluster_list), "k-means clusters"
+#     print compute_distortion(cluster_list, data_table)
 
-    print compute_distortion(cluster_list, data_table)
+#     # draw the clusters using matplotlib or simplegui
+#     if DESKTOP:
 
-
-    # draw the clusters using matplotlib or simplegui
-    if DESKTOP:
-
-        alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, False)
-        # alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, True)  #add cluster centers
-    else:
-        alg_clusters_simplegui.PlotClusters(data_table, cluster_list)   # use toggle in GUI to add cluster centers
+#         alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, False)
+#         # alg_clusters_matplotlib.plot_clusters(data_table, cluster_list, True)  #add cluster centers
+#     else:
+#         alg_clusters_simplegui.PlotClusters(data_table, cluster_list)   # use toggle in GUI to add cluster centers
 
 # run_example()
 
@@ -133,41 +131,41 @@ def compute_distortion(cluster_list, data_table):
         distortion += cluster.cluster_error(data_table)
     return distortion
 
-def quality_comparison():
-    data_table = load_data_table(DATA_290_URL)
+# def quality_comparison():
+#     data_table = load_data_table(DATA_290_URL)
 
-    singleton_list = []
-    for line in data_table:
-        singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
+#     singleton_list = []
+#     for line in data_table:
+#         singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
 
-    hierarchical_distortion = []
-    kmeans_distortion = []
+#     hierarchical_distortion = []
+#     kmeans_distortion = []
 
-    for idx in range(20, 5, -1):
-        hierarchical_ouptut = alg_project3_template.hierarchical_clustering(singleton_list, idx)
-        hierarchical_distortion.append(compute_distortion(hierarchical_ouptut, data_table))
+#     for idx in range(20, 5, -1):
+#         hierarchical_ouptut = alg_project3_template.hierarchical_clustering(singleton_list, idx)
+#         hierarchical_distortion.append(compute_distortion(hierarchical_ouptut, data_table))
 
-    singleton_list = []
-    for line in data_table:
-        singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
+#     singleton_list = []
+#     for line in data_table:
+#         singleton_list.append(alg_cluster.Cluster(set([line[0]]), line[1], line[2], line[3], line[4]))
 
-    for idx in range(20, 5, -1):
-        kmeans_ouptut = alg_project3_template.kmeans_clustering(singleton_list, idx, 5)
-        kmeans_distortion.append(compute_distortion(kmeans_ouptut, data_table))
+#     for idx in range(20, 5, -1):
+#         kmeans_ouptut = alg_project3_template.kmeans_clustering(singleton_list, idx, 5)
+#         kmeans_distortion.append(compute_distortion(kmeans_ouptut, data_table))
 
-    hierarchical_distortion.reverse()
-    kmeans_distortion.reverse()
+#     hierarchical_distortion.reverse()
+#     kmeans_distortion.reverse()
 
 
-    abcissa = range(6, 21)
-    plt.plot(abcissa, hierarchical_distortion, 'b', label="hierarchical distortion")
-    plt.plot(abcissa, kmeans_distortion, 'r', label="k-means distortion")
+#     abcissa = range(6, 21)
+#     plt.plot(abcissa, hierarchical_distortion, 'b', label="hierarchical distortion")
+#     plt.plot(abcissa, kmeans_distortion, 'r', label="k-means distortion")
 
-    plt.xlabel("Number of clusters")
-    plt.ylabel("Distortion ( x 10^11)")
-    plt.title("Distortion comparison between hierarchical and k-means algo for 290 data table")
-    # plt.xscale('log')
-    # plt.yscale('log')
-    plt.legend(bbox_to_anchor=(0.05, 1), loc=2, borderaxespad=0.)
-    plt.show()
-quality_comparison()
+#     plt.xlabel("Number of clusters")
+#     plt.ylabel("Distortion ( x 10^11)")
+#     plt.title("Distortion comparison between hierarchical and k-means algo for 290 data table")
+#     # plt.xscale('log')
+#     # plt.yscale('log')
+#     plt.legend(bbox_to_anchor=(0.05, 1), loc=2, borderaxespad=0.)
+#     plt.show()
+# # quality_comparison()
