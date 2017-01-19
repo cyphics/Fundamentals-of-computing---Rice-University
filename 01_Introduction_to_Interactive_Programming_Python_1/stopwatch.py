@@ -1,5 +1,9 @@
 # template for "Stopwatch: The Game"
-import simplegui
+try:
+    import simplegui
+except ImportError:
+    import SimpleGUICS2Pygame.simpleguics2pygame as simplegui
+
 # define global variables
 
 # Variables to draw the digit numbers properly
