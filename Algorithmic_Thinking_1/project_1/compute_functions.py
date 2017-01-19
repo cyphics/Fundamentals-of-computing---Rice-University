@@ -73,29 +73,11 @@ def compute_in_degrees(digraph):
     """
     global counter
     dictionary = {}
-    # for key in digraph:
-    #     dictionary[key] = []
-    #     counter += 1
-    # for key in dictionary:
-    #     in_edges = 0
-    #     for node in digraph:
-    #         if node != key:
-    #             for elem in digraph[node]:
-    #                 if elem == key:
-    #                     in_edges += 1
-    #                 counter += 1
-    #     dictionary[key] = in_edges
-    # dictionary = {}
     for key in digraph:
         dictionary[key] = 0
-        # counter += 1
     for key in digraph:
         for edge in digraph[key]:
             dictionary[edge] += 1
-            # print counter
-            # counter += 1
-    # print "Counter for compute:", counter
-    # counter = 0
     return dictionary
 
 
@@ -122,7 +104,6 @@ def normalize_in_degree_graph(in_graph, total_nodes):
     for degree in in_graph:
         normalized_graph[degree] = in_graph[degree] / float(total_nodes)
         normalization += normalized_graph[degree]
-    # assert normalization == 1.0, "Not normalized"
     return normalized_graph
 
 
@@ -131,7 +112,6 @@ def modified_ER(length, probability):
     for node in range(length):
         graph[node] = set([])
     for first_node in range(length):
-        print first_node
         available_nodes = [idx for idx in range(length)]
         number_of_neighbors = int(random.gauss(length / 2, 30))
         neighbors = set([])
@@ -140,12 +120,6 @@ def modified_ER(length, probability):
             neighbors.add(new_neighbor)
             available_nodes.remove(new_neighbor)
         graph[first_node] = neighbors
-        # print first_node
-        # for second_node in range(length):
-        #     if first_node != second_node:
-        #         edge_proba = random.uniform(0, 1)
-        #         if edge_proba < probability:
-        #             graph[first_node].add(second_node)
     return graph
 
 
@@ -160,7 +134,6 @@ def DPA(length, num_neighbors):
         for second_node in graph:
             if first_node != second_node:
                 graph[first_node].add(second_node)
-    print "LENGTH", len(graph)
     # Create the rest
     a_dpa = dpa.DPATrial(num_neighbors)
     for idx in range(length - num_neighbors):
